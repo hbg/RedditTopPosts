@@ -28,7 +28,14 @@ with open ("topposts.txt","a") as f:
 		returnV = re.sub(r'.*\">', '', stringV)
 		returnV = returnV.replace("</a>","",1)
 		f.write(returnV + "\n\n")
-
+		print "Post #%s, Title: %s" % (i,returnV)
+	results = soup.findAll("a", attrs={"class": "title may-blank " })
+	for r in results:
+		i = i + 1
+		stringV = "%s" % r
+		returnV = re.sub(r'.*\">', '', stringV)
+		returnV = returnV.replace("</a>","",1)
+		f.write(returnV + "\n\n")
 		print "Post #%s, Title: %s" % (i,returnV)
 
 	for u in users:
